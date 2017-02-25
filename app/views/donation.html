@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Donation Page</title>
+</head>
+<body>
+<div class="mainDiv">
+	<div class="TitleBar">
+		<span>{{ neededAmt| currency:"$":0}} still needed for this project</span>
+	</div>
+	<div class="downArrow"></div>
+	<div class="contentBody">
+		<div class="progressBar">
+			<div id="barId" class="barCss"></div>
+		</div>
+		<div class="contents">
+			<p><span class="textColor">Only 3 days left</span> to fund this project.</p>
+			<p>Join the 42 other donors who have already supported this project. Every dollar helps.</p>
+		</div>
+		<div class="buttonInput"> 
+			<div class="paySection">
+				<input id="amt" value="{{amtToPay}}" disabled type="text">
+				<span>$</span>
+			</div>
+			<div class="paySection">
+				<button ng-click="addValue()">Give Now</button>
+			</div>
+		</div>
+		<span class="alignSpan" ng-show="amtToPay"><a href="">Why give ${{amtToPay}}?</a></span>
+	</div>
+	<div class="footerButton">
+		<div class="saveShareCss">
+			<button ng-click="showMessage()">Save for Later</button>
+		</div>
+		<div class="saveShareCss">
+			<button ng-click="sharePost()">Tell Your Friends</button>
+		</div>
+	</div>
+	<div class="modal" id="dialogBox">
+		<div class="modalContent">
+			<span class="close">X</span>
+			<p>Saved!</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

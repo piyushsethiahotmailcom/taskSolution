@@ -1,0 +1,34 @@
+<h2>Cart Example <a href ng-click="goTODonationPage()" class="btn btn-small">GO TO DONATION PAGE</a></h2>
+
+<div>
+    <div ng-show="showError" class="alert alert-danger">
+        <strong>Please select Correct value</strong>
+    </div>
+    <table class="table">
+        <tr>    
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Cost</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="item in itemObject.items">
+            <td>{{item.description}}</td>           
+            <td><input type="number" ng-change="qtyChange()" ng-model="item.qty" min="1" required class="input-mini"></td>
+            <td>{{item.cost | currency:'&#8377;'}}</td>
+            <td>{{item.qty * item.cost | currency:'&#8377;'}}</td>
+            <td>
+                [<a href ng:click="removeItem(item.id)">X</a>]
+            </td>
+        </tr>
+        <tr>
+            <td><a href ng-click="addItem()" class="btn btn-small">add item</a></td>
+            <td></td>
+            <td>Total:</td>
+            <td>{{total() | currency:'&#8377;'}}</td>
+        </tr>
+        <tr ng-show="itemObject.items.length !='0'">
+            <td><a href ng-click="ClearCart()" class="btn btn-small">Clear Cart</a></td>
+        </tr>
+    </table>
+</div>
